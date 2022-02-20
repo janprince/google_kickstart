@@ -17,11 +17,11 @@ for i in range(test_cases):
 
     sum = 0
     max_houses = 0
-    for o in house_prices:
-        if sum < B_budget:
+    for (index, o) in enumerate(house_prices):
+        if sum < B_budget and sum+o <= B_budget:
             sum += o
+            max_houses = index + 1
         else:
-            max_houses = house_prices.index(o)
             break
 
     print(f"Case #{i + 1}: {max_houses}")
